@@ -1,0 +1,49 @@
+
+body {
+    background: #EE5C42;
+    font: 18px/30px 'Yanone Kaffeesatz', Arial, Serif;
+    color:#000;
+
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    border: 2px solid var(--color-dark3);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+    font:300%/40px 'Permanent Marker', Arial, Serif;
+	color:#000;
+}
+
+h2, h3 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 25px;
+}
+
+
+.container__botao   {
+    background-color: #00008B;
+    font: 20px 'Permanent Marker', Arial, Serif;
+    border-radius: 5px;
+    padding: 1em;
+    color: white;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 1em;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto 0 auto;
+}
