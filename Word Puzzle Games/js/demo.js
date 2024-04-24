@@ -76,100 +76,24 @@ $(function () {
         return false;
     });
 
-<<<<<<< HEAD
-
-    // codigo do chat
-    $('#level').click(function () {
-        var levelAtual = $(this).text().trim();
-    
-        switch (levelAtual) {
-            case 'easy':
-                $(this).text('medium');
-                $models.removeClass('hard'); // Removemos a classe 'hard' caso esteja presente
-                $models.empty(); // Removemos todas as células do modelo
-                $models.addClass('medium'); // Adicionamos a classe 'medium'
-                break;
-            case 'medium':
-                $(this).text('hard');
-                $models.removeClass('medium'); // Removemos a classe 'medium' caso esteja presente
-                $models.empty(); // Removemos todas as células do modelo
-                $models.addClass('hard'); // Adicionamos a classe 'hard'
-                break;
-            case 'hard':
-                $(this).text('easy');
-                $models.removeClass('hard'); // Removemos a classe 'hard' caso esteja presente
-                $models.empty(); // Removemos todas as células do modelo
-                break;
-            default:
-                break;
-        }
-    
-        refreshGame(); // Limpa o conteúdo dos elementos 'models' e 'letters'
-        buildGame(idx); // Reconstrói o jogo com o novo nível
-        return false;
-    });
-    //
-
-     // Inicio: Atualização Adriany
-    /* Eu reaproveitei a estrutura de adição e remoção de classe que já tinha no if e no else e aumentei essa condicional com o switch. 
-    Para o switch funcionar eu passo como argumento uma variável. O que ela faz? Ela obtem o texto do botão sem espaços em branco. */
-    // $('#level').click(function() {
-    //     var levelAtual = $(this).text().trim();
-
-    //     switch (levelAtual) {
-    //         case 'easy':
-    //             $( this ).text('medium');
-    //             $models.addClass('medium');
-    //             break;
-    //         case 'medium': 
-    //             $( this ).text('hard');
-    //             $models.removeClass('medium');
-    //             $models.addClass('hard');
-    //             break;
-    //         case 'hard':
-    //             $( this ).text('easy');
-    //             $models.removeClass('hard');
-    //             break;
-    //         default:
-    //             break;
-    //     }
-
-    //     return false;
-    // });
-
-    // Fim: Atualização Adriany
-
-    // original
-   /* $( '#level' ).click( function() {
-        if ( $( this ).text() == 'easy' ) {
-            $( this ).text( 'hard' );
-            $models.addClass( 'hard' );
-=======
     $('#level').click(function () {
         if ($(this).text() == 'easy') {
             $(this).text('hard');
             $models.addClass('hard');
->>>>>>> 6cb00c8dca68e4ccb705473580d8a8bc6765f41f
         } else {
             $(this).text('easy');
             $models.removeClass('hard');
         }
         return false;
-    }); */
+    });
 
     function refreshGame() {
         $('#models').html('');
         $('#letters').html('');
     }
 
-<<<<<<< HEAD
-  
-    function buildGame( x ) {
-        if ( x > games.length - 1 ) {
-=======
     function buildGame(x) {
         if (x > games.length - 1) {
->>>>>>> 6cb00c8dca68e4ccb705473580d8a8bc6765f41f
             idx = 0;
         }
         if (x < 0) {
@@ -197,40 +121,6 @@ $(function () {
                 gameSound.play();
             });
 
-<<<<<<< HEAD
-        // Build model - aqui é aonde ficam as letras fantamas!
-        // código do chat
-        var modelLetters = game.word.split( '' );
-
-        // Verifica se o nível é médio e pré-preenche a primeira e última célula
-         if ($('#level').text().trim() == 'medium') {
-        // Pré-preenche a primeira célula
-        $models.append('<li>' + modelLetters[0] + '</li>');
-
-        // Adiciona células ocultas entre a primeira e a última célula
-        for (var i = 1; i < modelLetters.length - 1; i++) {
-            $models.append('<li class="hidden"></li>');
-        }
-
-        // Pré-preenche a última célula
-        $models.append('<li>' + modelLetters[modelLetters.length - 1] + '</li>');
-            } else {
-        // Se não for médio, adiciona todas as letras do modelo normalmente
-            for (var i in modelLetters) {
-                var letter = modelLetters[i];
-                $models.append('<li>' + letter + '</li>');
-            }
-        }
-        /* O original */
-
-            // for( var i in modelLetters ) {
-            //     var letter = modelLetters[ i ];
-            //     $models.append( '<li>' + letter + '</li>' );
-            // }
-        
-
-        var letterWidth = $models.find( 'li' ).outerWidth( true );
-=======
         // Build model
         var modelLetters = game.word.split('');
 
@@ -240,7 +130,6 @@ $(function () {
         }
 
         var letterWidth = $models.find('li').outerWidth(true);
->>>>>>> 6cb00c8dca68e4ccb705473580d8a8bc6765f41f
 
         $models.width(letterWidth * $models.find('li').length);
 
@@ -251,19 +140,11 @@ $(function () {
         for (var i in shuffled) {
             $letters.append('<li class="draggable">' + shuffled[i] + '</li>');
         }
-<<<<<<< HEAD
-       
-        $letters.find( 'li' ).each( function( i ) {
-            var top   = ( $models.position().top ) + ( Math.random() * 100 ) + 80,
-                left  = ( $models.offset().left - $container.offset().left ) + ( Math.random() * 20 ) + ( i * letterWidth ),
-                angle = ( Math.random() * 30 ) - 10;
-=======
 
         $letters.find('li').each(function (i) {
             var top = ($models.position().top) + (Math.random() * 100) + 80,
                 left = ($models.offset().left - $container.offset().left) + (Math.random() * 20) + (i * letterWidth),
                 angle = (Math.random() * 30) - 10;
->>>>>>> 6cb00c8dca68e4ccb705473580d8a8bc6765f41f
 
             $(this).css({
                 top: top + 'px',
@@ -285,20 +166,11 @@ $(function () {
             stack: '#letters li'
         });
 
-<<<<<<< HEAD
-        $models.find( 'li' ).droppable( {
-            accept:     '.draggable',
-            hoverClass: 'hover', 
-            tolerance: 'pointer',
-            drop: function( e, ui ) {
-                var modelLetter      = $( this ).text(),
-=======
         $models.find('li').droppable({
             accept: '.draggable',
             hoverClass: 'hover',
             drop: function (e, ui) {
                 var modelLetter = $(this).text(),
->>>>>>> 6cb00c8dca68e4ccb705473580d8a8bc6765f41f
                     droppedLetter = ui.helper.text();
 
                 if (modelLetter == droppedLetter) {
