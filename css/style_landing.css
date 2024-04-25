@@ -1,7 +1,10 @@
 
 body {
-    background: #EE5C42;
+    /* background: #EE5C42; */
+    background-image: url('https://img.freepik.com/fotos-gratis/jogo-colorido-no-chao-de-madeira_23-2148518129.jpg?t=st=1714043548~exp=1714047148~hmac=008fbaacb2162a7422c208f4232572332d0af61199220c93bc9003afdc88316e&w=826');
     font: 18px/30px 'Yanone Kaffeesatz', Arial, Serif;
+    background-repeat: no-repeat;
+    background-size: cover;
     color:#000;
 
 }
@@ -29,7 +32,9 @@ h2, h3 {
 }
 
 p {
-    font-size: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    
 }
 
 

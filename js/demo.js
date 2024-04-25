@@ -34,20 +34,14 @@ for (var i in alphabet) {
     var letter = alphabet[i];
     alphabetSounds[letter] = new buzz.sound('sounds/kid/' + letter);
 }
- 
-//Att
+
+// Implementação 1
 var score = 0;
- 
-function updateScore() {
+
+function attScore() {
     $('#score').text('Pontuação: ' + score);
 }
- 
-updateScore();
-//Att
-
-function fimDoJogo() {
-    alert("Parabéns você acertou tudo!")
-}
+// 
  
 $(function () {
     if (!buzz.isSupported()) {
@@ -59,6 +53,8 @@ $(function () {
         $picture = $('#picture'),
         $models = $('#models'),
         $letters = $('#letters');
+
+
  
     $('body').bind('selectstart', function () {
         return false
@@ -201,7 +197,7 @@ $(function () {
  
     function winGame() {
         winSound.play();
- 
+
         $('#letters li').each(function (i) {
             var $$ = $(this);
             setTimeout(function () {
@@ -211,17 +207,22 @@ $(function () {
             }, i * 300);
         });
  
-        //Att
-        score += 10;
- 
-        updateScore();
-        //Att
- 
         setTimeout(function () {
             refreshGame();
             buildGame(++idx);
         }, 3000);
 
+// Incrementeção 2
+
+        score += 10;
+        attScore();
+
+        if(score >= 200) {
+            alert("Parabéns!🥳 \n Você chegou ao fim do jogo.🤖\n Quer jogar de novo❓");
+            score = 0;
+            attScore();
+        }
+//
     }
  
     function rotate(el, angle) {
