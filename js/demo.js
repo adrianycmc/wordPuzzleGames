@@ -36,12 +36,24 @@ for (var i in alphabet) {
 }
 
 // Implementação 1
+// Atualização e exibição dos pontos na tela
 var score = 0;
 
 function attScore() {
     $('#score').text('Pontuação: ' + score);
 }
-// 
+
+
+// Implementação 2
+// Função que indica o fim do jogo após completar os 20 bichinhos, parabeniza o jogador e zera o placar
+
+function fimDeJogo() {
+    if(score >= 200) {
+        alert("Parabéns!🥳 \n Você chegou ao fim do jogo.🤖\n Quer jogar de novo❓");
+        score = 0;
+        attScore();
+    }
+}
  
 $(function () {
     if (!buzz.isSupported()) {
@@ -212,17 +224,11 @@ $(function () {
             buildGame(++idx);
         }, 3000);
 
-// Incrementeção 2
+// Implementação 3
+// Adiciona 10 pontos com o acerto da palavra e chama a função attScore para atualizar o placar
 
         score += 10;
         attScore();
-
-        if(score >= 200) {
-            alert("Parabéns!🥳 \n Você chegou ao fim do jogo.🤖\n Quer jogar de novo❓");
-            score = 0;
-            attScore();
-        }
-//
     }
  
     function rotate(el, angle) {
@@ -232,8 +238,16 @@ $(function () {
             '-ms-transform': 'rotate(' + angle + 'deg)',
             '-o-transform': 'rotate(' + angle + 'deg)',
             'transform': 'rotate(' + angle + 'deg)'
+           
         });
+
+// Implementação 4
+// Chamada da função de finalização do jogo parabenizando o jogador
+        fimDeJogo();
     }
- 
+
     buildGame(idx);
 });
+
+
+
