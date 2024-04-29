@@ -36,7 +36,7 @@ Divirta-se aprendendo sobre a vida selvagem com este jogo educativo interativo!
 
 ## Arquivos e Estrutura do Projeto 📁
 - **`index.html`:** Arquivo HTML principal que renderiza o jogo no navegador.
-- **game.html:** Estrutura básica do jogo, contendo as imagens, elementos interativos e referências aos scripts necessários.
+- **`game.html`:** Estrutura básica do jogo, contendo as imagens, elementos interativos e referências aos scripts necessários.
 - **`demo.js`:** Arquivo JavaScript principal que controla a lógica do jogo, incluindo interações com o usuário, manipulação de elementos e verificação de respostas.
 - **`styles.css`:** Arquivo CSS que define o estilo e o layout do jogo.
 - **`buzz.js`:** Biblioteca para reprodução de áudio.
