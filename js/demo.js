@@ -35,18 +35,21 @@ for (var i in alphabet) {
     alphabetSounds[letter] = new buzz.sound('sounds/kid/' + letter);
 }
 
-// Implementação 1
-// Atualização e exibição dos pontos na tela
+/* Implementação 1
+-> O que é? Uma função responsável por atualizar os pontos na tela. 
+-> Como? A variável score que abriga a nossa pontuação inicia em 0.
+    E então eu crio uma função attScore() que através do meu #score puxa o meu score do HTML e utiliza a função text() para exibir o texto "Pontuação" + o valor do meu score armazenado na minha variável. 
+*/
 var score = 0;
 
 function attScore() {
     $('#score').text('Pontuação: ' + score);
 }
 
-
-// Implementação 2
-// Função que indica o fim do jogo após completar os 20 bichinhos, parabeniza o jogador e zera o placar
-
+/* Implementação 2
+-> O que é? Função que indica o fim do jogo após completar os 20 bichinhos, parabeniza o jogador e zera o placar
+-> Como? Crio uma função onde sua tarefa é usar uma condicional apenas com o if que efetua a verificação se é maior ou igual a 200, se for vai ser exibida a mensagem de alerta no jogo, zerar a minha pontuação e atualizar chamando novamente a função attScore().
+*/
 function fimDeJogo() {
     if(score >= 200) {
         alert("Parabéns!🥳 \n Você chegou ao fim do jogo.🤖\n Quer jogar de novo❓");
@@ -224,9 +227,10 @@ $(function () {
             buildGame(++idx);
         }, 3000);
 
-// Implementação 3
-// Adiciona 10 pontos com o acerto da palavra e chama a função attScore para atualizar o placar
-
+/* Implementação 3
+O que é? -> Adiciona 10 pontos com o acerto da palavra e chama a função attScore para atualizar o placar.
+Como? -> Aproveito a função winGame() que confere o acerto do meu jogador para que usando o a variável score eu possa somar 10 pontos a esse acerto e chamo novamente a função attScore() para atualizar o meu placar. 
+*/
         score += 10;
         attScore();
     }
@@ -241,8 +245,10 @@ $(function () {
            
         });
 
-// Implementação 4
-// Chamada da função de finalização do jogo parabenizando o jogador
+/* Implementação 4
+O que é? -> Chamada da função de finalização do jogo parabenizando o jogador.
+Como? -> Eu chamo a função aqui porque eu quero que a janela só abra depois de acabar todo o processo do jogo. Ela vai abrir a janela de alerta, dando parabéns ao jogador e o convidando a jogar novamente, ao clicar em ok, o placar zera e o jogo reinicia. 
+*/
         fimDeJogo();
     }
 
